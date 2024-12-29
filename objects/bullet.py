@@ -1,6 +1,3 @@
-import math
-
-import pygame
 from objects.entity_sprite import EntitySprite
 
 

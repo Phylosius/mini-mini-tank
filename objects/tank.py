@@ -1,8 +1,3 @@
-import sys
-import pygame
-import math
-
-import game
 from objects.bullet import Bullet
 from objects.entity_sprite import EntitySprite
 

@@ -1,10 +1,6 @@
-import pygame
 
-
-class Entity(pygame.sprite.Sprite):
+class Entity:
     def __init__(self):
-
-        pygame.sprite.Sprite.__init__(self)
 
         self.max_health = 100
         self.health = self.max_health
