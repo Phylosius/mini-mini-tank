@@ -16,7 +16,7 @@ class Game:
         self.clock = pygame.time.Clock()
         self.keys = pygame.key.get_pressed()
 
-        self.player = Tank(self)
+        self.player = Tank(self, 50, 50)
         self.player_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
 
