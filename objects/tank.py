@@ -12,11 +12,11 @@ class Tank(Entity):
     def __init__(self, _game):
         Entity.__init__(self)
 
-        self.x = 50
-        self.y = 50
+        self.x = 0
+        self.y = 0
         self.speed = 7
         self.rotation_speed = 5  # Plus petit pour des rotations plus fines
-        self.radius = -67
+        self.radius = 0
 
         self.game = _game
 
@@ -29,11 +29,14 @@ class Tank(Entity):
         self.image = pygame.transform.scale(self.image, self.image_size)
         self.image = pygame.transform.rotozoom(self.image, self.image_radius, self.image_scale)
 
+        self.image.fill('blue')
+        self.image.set_at((self.image.get_rect().centerx, self.image.get_rect().centery), 'black')
+
         self.rect = self.image.get_rect(center=(self.x, self.y))
 
     def shoot(self):
         self.game.bullet_group.add(
-            Bullet(self.rect.topleft[0], self.rect.topleft[1], self.radius)
+            Bullet(self.x, self.y, self.radius)
         )
 
     def move(self):
