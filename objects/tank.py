@@ -1,3 +1,5 @@
+import math
+
 from objects.bullet import Bullet
 from objects.entity_sprite import EntitySprite
 
@@ -13,7 +15,9 @@ class Tank(EntitySprite):
 
     def shoot(self):
         self.game.bullet_group.add(
-            Bullet(self.x, self.y, self.radius)
+            Bullet(self.x + 6 * math.cos(math.radians(self.radius)),
+                   self.y - 6 * math.sin(math.radians(self.radius)),
+                   self.radius)
         )
 
     def rotate_left(self):
