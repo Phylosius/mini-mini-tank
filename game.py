@@ -5,6 +5,7 @@ import pygame
 from objects.tank import Tank
 
 sprites_updater = lambda s: s.update()
+sprites_drawer = lambda s: s.draw()
 
 
 class Game:
@@ -20,6 +21,9 @@ class Game:
 
         self.player_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
+
+    def add_player(self, player):
+        self.player_group.add(player)
 
     def check_bullets_collision_with_players(self):
         for player in self.player_group:
