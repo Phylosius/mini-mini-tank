@@ -16,23 +16,17 @@ class Game:
         self.clock = pygame.time.Clock()
         self.keys = pygame.key.get_pressed()
 
-        self.player = Tank(self, 50, 50)
         self.player_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
 
-    def check_keywords(self):
-
-        if self.keys[pygame.K_UP]:
-            self.player.move()
-
-        if self.keys[pygame.K_LEFT]:
-            self.player.rotate_left()
-        elif self.keys[pygame.K_RIGHT]:
-            self.player.rotate_right()
+    def check_bullets_collision_with_players(self):
+        for player in self.player_group.sprites():
+            bullets = pygame.sprite.spritecollide(player, self.bullet_group, False)
+            if bullets:
+                map(lambda b: b.hint(player), bullets)
 
     def init(self):
         pygame.display.set_caption(self.title)
-        self.player_group.add(self.player)
 
     def draw_surfaces(self):
         for player in self.player_group.sprites():
@@ -41,7 +35,6 @@ class Game:
             bullet.draw(self.screen)
 
     def update(self):
-        self.check_keywords()
         self.player_group.update()
         for bullet in self.bullet_group.sprites():
             bullet.update()
@@ -57,10 +50,6 @@ class Game:
                     self.running = False
                     pygame.quit()
                     sys.exit()
-
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        self.player.shoot()
 
             self.update()
 
