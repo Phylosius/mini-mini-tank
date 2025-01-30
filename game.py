@@ -17,6 +17,9 @@ class Game:
         self.player_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
 
+    def handle_pygame_event(self, event):
+        pass
+
     def add_player(self, player):
         self.player_group.add(player)
 
@@ -55,6 +58,8 @@ class Game:
                     self.running = False
                     pygame.quit()
                     sys.exit()
+
+                self.handle_pygame_event(event)
 
             self.update()
 
