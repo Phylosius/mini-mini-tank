@@ -7,6 +7,11 @@ class Bullet(EntitySprite):
                               speed=10, rotation=rotation,
                               image_path='sprites/bullet.png', image_radius=-90, image_size=(25, 25))
 
+        self.damage = 10
+
     def update(self):
         super().update()
         self.move()
+
+    def hint(self, entity):
+        entity.apply_damage(self.damage)
