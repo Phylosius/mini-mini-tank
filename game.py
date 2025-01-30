@@ -4,6 +4,8 @@ import pygame
 
 from objects.tank import Tank
 
+sprites_updater = lambda s: s.update()
+
 
 class Game:
     def __init__(self, title):
@@ -28,6 +30,10 @@ class Game:
     def init(self):
         pygame.display.set_caption(self.title)
 
+    def sprite_group_update(self):
+        map(sprites_updater, self.player_group.sprites())
+        map(sprites_updater, self.bullet_group.sprites())
+
     def draw_surfaces(self):
         for player in self.player_group.sprites():
             player.draw(self.screen)
@@ -35,9 +41,8 @@ class Game:
             bullet.draw(self.screen)
 
     def update(self):
-        self.player_group.update()
-        for bullet in self.bullet_group.sprites():
-            bullet.update()
+        self.check_bullets_collision_with_players()
+        self.sprite_group_update()
 
     def run(self):
         self.init()
