@@ -11,7 +11,10 @@ class Entity:
 
         self.speed = 0
 
+    def on_out_of_health(self):
+        self.is_alive = False
+
     def apply_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
-            self.is_alive = False
+            self.on_out_of_health()
