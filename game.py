@@ -2,11 +2,6 @@ import sys
 
 import pygame
 
-from objects.tank import Tank
-
-sprites_updater = lambda s: s.update()
-sprites_drawer = lambda s: s.draw()
-
 
 class Game:
     def __init__(self, title):
