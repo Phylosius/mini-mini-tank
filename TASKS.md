@@ -1,1 +1,2 @@
 - [ ] implementing AI player
+- [ ] change `Tank.display` implementation
