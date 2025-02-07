@@ -23,11 +23,6 @@ class Game:
     def add_player(self, player):
         self.player_group.add(player)
 
-    def check_bullets_collision_with_players(self):
-        for player in self.player_group:
-            for bullet in pygame.sprite.spritecollide(player, self.bullet_group, False):
-                bullet.hint(player)
-
     def init(self):
         pygame.display.set_caption(self.title)
 
@@ -44,7 +39,6 @@ class Game:
             bullet.draw(self.screen)
 
     def update(self):
-        self.check_bullets_collision_with_players()
         self.sprite_group_update()
 
     def run(self):

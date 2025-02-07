@@ -13,9 +13,15 @@ class Tank(EntitySprite):
 
         self.game = _game
 
+    def update(self):
+        super().update()
+        if not self.is_alive:
+            self.kill()
+
     def shoot(self):
         self.game.bullet_group.add(
-            Bullet(self.x + 6 * math.cos(math.radians(self.radius)),
+            Bullet(self,
+                   self.x + 6 * math.cos(math.radians(self.radius)),
                    self.y - 6 * math.sin(math.radians(self.radius)),
                    self.radius)
         )
