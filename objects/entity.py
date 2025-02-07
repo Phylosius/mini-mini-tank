@@ -13,6 +13,10 @@ class Entity:
 
         self.speed = 0
 
+    def get_hint_angle(self, _entity, deg=True):
+        rad_angle = math.atan2(abs(self.x - _entity.x) / abs(self.y - _entity.y))
+        return math.degrees(rad_angle) if deg else rad_angle
+
     def get_distance(self, _entity):
         return math.sqrt(abs(self.x - _entity.x) + abs(self.y - _entity.y))
 
