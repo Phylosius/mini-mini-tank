@@ -14,11 +14,11 @@ class Entity:
         self.speed = 0
 
     def get_hint_angle(self, _entity, deg=True):
-        rad_angle = math.atan2(abs(self.x - _entity.x) / abs(self.y - _entity.y))
+        rad_angle = math.atan2(self.y - _entity.y, _entity.x - self.x)
         return math.degrees(rad_angle) if deg else rad_angle
 
     def get_distance(self, _entity):
-        return math.sqrt(abs(self.x - _entity.x) + abs(self.y - _entity.y))
+        return math.sqrt(abs(self.x - _entity.x) + abs(_entity.y - self.y))
 
     def on_out_of_health(self):
         self.is_alive = False
