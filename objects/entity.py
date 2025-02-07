@@ -1,3 +1,5 @@
+import math
+
 
 class Entity:
     def __init__(self):
@@ -10,6 +12,9 @@ class Entity:
         self.y = 50
 
         self.speed = 0
+
+    def get_distance(self, _entity):
+        return math.sqrt(abs(self.x - _entity.x) + abs(self.y - _entity.y))
 
     def on_out_of_health(self):
         self.is_alive = False
