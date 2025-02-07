@@ -8,7 +8,7 @@ class AutoTank(Tank):
         super().__init__(_game, x, y)
         self.speed = 2
 
-    def follow_and_shoot_player(self, orbit=15, shoot_delay=500):
+    def follow_and_shoot_player(self, orbit=15, shoot_delay=100):
         """
         Make the Tank follow and shoot the player in solo game
 
