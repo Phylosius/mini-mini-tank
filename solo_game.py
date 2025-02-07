@@ -2,6 +2,7 @@ import pygame
 
 from game import Game
 from objects.tank import Tank
+from objects.auto_tank import AutoTank
 
 
 class SoloGame(Game):
@@ -10,6 +11,7 @@ class SoloGame(Game):
 
         self.player = Tank(self, 0, 0)
         self.player_group.add(self.player)
+        self.player_group.add(AutoTank(self, self.screen.get_width() / 2, self.screen.get_height() / 2))
 
     def handle_pygame_event(self, event):
 
