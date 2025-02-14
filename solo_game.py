@@ -24,6 +24,8 @@ class SoloGame(Game):
         # for action to be performed while pressing
         if self.keys[pygame.K_UP]:
             self.player.move()
+        elif self.keys[pygame.K_DOWN]:
+            self.player.move(-1)
         if self.keys[pygame.K_LEFT]:
             self.player.rotate_left()
         if self.keys[pygame.K_RIGHT]:
@@ -32,6 +34,7 @@ class SoloGame(Game):
     def update(self):
         super().update()
         self.check_keyboard_press()
+        self.player.fix_state()
 
 
 if __name__ == "__main__":

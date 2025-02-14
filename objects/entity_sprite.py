@@ -30,11 +30,6 @@ class EntitySprite(entity.Entity, pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect(center=(self.x, self.y))
 
-    def move(self):
-        rad_angle = math.radians(self.radius)
-        self.x += math.cos(rad_angle) * self.speed
-        self.y -= math.sin(rad_angle) * self.speed  # Soustraction car l'axe y est inversé
-
     def draw(self, screen):
         rotated_image = pygame.transform.rotozoom(self.image, self.radius, 1)
         screen.blit(rotated_image, rotated_image.get_rect(center=(self.x, self.y)))
