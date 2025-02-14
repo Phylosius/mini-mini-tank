@@ -1,0 +1,13 @@
+from objects.auto_tank import AutoTank
+from solo_game import SoloGame
+
+
+class PvEGame(SoloGame):
+    def __init__(self):
+        super().__init__()
+        self.player_group.add(AutoTank(self, self.screen.get_width() // 2, self.screen.get_height() // 2))
+
+
+if __name__ == '__main__':
+    game = PvEGame()
+    game.run()

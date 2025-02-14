@@ -12,7 +12,6 @@ class SoloGame(Game, PlayerController):
 
         self.player = Tank(self, 0, 0)
         self.player_group.add(self.player)
-        self.player_group.add(AutoTank(self, self.screen.get_width() / 2, self.screen.get_height() / 2))
 
         PlayerController.__init__(self, self.player, self.keys)
 
