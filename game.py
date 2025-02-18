@@ -10,12 +10,16 @@ class DisplayedGame:
         self.title = title
         self.fps = 60
         self.running = True
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen = None
         self.clock = pygame.time.Clock()
         self.keys = pygame.key.get_pressed()
 
         self.player_group = pygame.sprite.Group()
         self.bullet_group = pygame.sprite.Group()
+        self.display = True
+
+    def init(self):
+        pass
 
     def handle_pygame_event(self, event):
         pass
@@ -23,7 +27,8 @@ class DisplayedGame:
     def add_player(self, player):
         self.player_group.add(player)
 
-    def init(self):
+    def init_display(self):
+        self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption(self.title)
 
     def sprite_group_update(self):
@@ -42,6 +47,9 @@ class DisplayedGame:
         self.sprite_group_update()
 
     def run(self):
+        if self.display:
+            self.init_display()
+
         self.init()
 
         while self.running:
@@ -57,9 +65,11 @@ class DisplayedGame:
 
             self.update()
 
-            self.screen.fill('dark green')
-            self.draw_surfaces()
+            if self.display:
+                self.screen.fill('dark green')
+                self.draw_surfaces()
 
-            pygame.display.flip()
+                pygame.display.flip()
+
             self.clock.tick(self.fps)
 
