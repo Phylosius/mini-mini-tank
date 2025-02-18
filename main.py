@@ -1,7 +1,7 @@
-from game import DisplayedGame
+from game import Game
 
 if __name__ == '__main__':
-    game = DisplayedGame('Mini mini tank')
+    game = Game('Mini mini tank')
     game.run()
 
 

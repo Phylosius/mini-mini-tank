@@ -1,14 +1,14 @@
 import pygame
 
-from game import DisplayedGame
+from game import Game
 from objects.tank import Tank
 from objects.auto_tank import AutoTank
 from services.player_controller import PlayerController
 
 
-class SoloDisplayedGame(DisplayedGame, PlayerController):
+class SoloGame(Game, PlayerController):
     def __init__(self):
-        DisplayedGame.__init__(self, "Mini Mini Tank Solo")
+        Game.__init__(self, "Mini Mini Tank Solo")
 
         self.player = Tank(self, 0, 0)
         self.player_group.add(self.player)
@@ -27,7 +27,7 @@ class SoloDisplayedGame(DisplayedGame, PlayerController):
 
 
 if __name__ == "__main__":
-    game = SoloDisplayedGame()
+    game = SoloGame()
     game.run()
 
 

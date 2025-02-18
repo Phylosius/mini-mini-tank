@@ -1,8 +1,8 @@
 from objects.auto_tank import AutoTank
-from solo_game import SoloDisplayedGame
+from solo_game import SoloGame
 
 
-class PvEGame(SoloDisplayedGame):
+class PvEGame(SoloGame):
     def __init__(self):
         super().__init__()
 
