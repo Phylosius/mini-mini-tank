@@ -24,6 +24,9 @@ class TCPServer:
         self.client_handler = self.handle_client
         self.client_data_handler = self.handle_client_data
 
+    def init(self):
+        pass
+
     def debug(self, message):
         method_name = inspect.currentframe().f_back.f_code.co_name
         self.display(message, f"{self.debug_sign}({method_name})")
@@ -88,6 +91,7 @@ class TCPServer:
         self.display(f"Server is running on {self.addr}")
 
     def run(self):
+        self.init()
         self.bind()
 
         try:
