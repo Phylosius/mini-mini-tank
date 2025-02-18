@@ -3,7 +3,7 @@ import sys
 import pygame
 
 
-class Game:
+class DisplayedGame:
     def __init__(self, title):
         pygame.init()
 
