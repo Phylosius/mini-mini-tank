@@ -102,6 +102,9 @@ class TCPServer:
                 thread.daemon = True  # Permet d'arrêter les threads lorsqu'ils ne sont plus nécessaires
                 thread.start()
 
+                for th in self.threads:
+                    th.start()
+
                 self.threads.append(thread)
         except KeyboardInterrupt:
             self.display("\nServer shutting down.")
