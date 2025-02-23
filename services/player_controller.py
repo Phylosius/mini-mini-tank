@@ -33,21 +33,20 @@ class KeyBinder:
 
 
 class PlayerController:
-    def __init__(self, key_binders, keys):
+    def __init__(self, key_binders):
         self.players_binders = key_binders
         self.players = list(map(lambda b: b.player, self.players_binders))
-        self.keys = keys
 
     def handle_player_shooting(self, event):
         for biding in self.players_binders:
             biding.check_shooting(event)
 
-    def check_keyboard_press(self):
+    def check_keyboard_press(self, keys):
         for biding in self.players_binders:
-            biding.check_keyboard_press(self.keys)
+            biding.check_keyboard_press(keys)
 
-    def update_player_position(self):
-        self.check_keyboard_press()
+    def update_player_position(self, keys):
+        self.check_keyboard_press(keys)
         for player in self.players:
             player.fix_state()
 

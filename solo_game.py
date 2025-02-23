@@ -16,7 +16,7 @@ class SoloGame(Game):
                                        pygame.K_q, pygame.K_d,
                                        pygame.K_z, pygame.K_s,
                                        pygame.K_LSHIFT)
-        self.player_controller = PlayerController([self.player_binder], self.keys)
+        self.player_controller = PlayerController([self.player_binder])
 
     def handle_pygame_event(self, event):
 
@@ -26,8 +26,7 @@ class SoloGame(Game):
 
     def update(self):
         super().update()
-        self.player_controller.keys = self.keys
-        self.player_controller.update_player_position()
+        self.player_controller.update_player_position(self.keys)
 
 
 if __name__ == "__main__":
