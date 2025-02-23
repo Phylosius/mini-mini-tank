@@ -9,7 +9,7 @@ class SoloGame(Game):
     def __init__(self):
         Game.__init__(self, "Mini Mini Tank Solo")
 
-        self.player = Tank(self, 0, 0)
+        self.player = Tank(self, 30, 30)
         self.player_group.add(self.player)
 
         self.player_binder = KeyBinder(self.player,
