@@ -26,6 +26,7 @@ class SoloGame(Game):
 
     def update(self):
         super().update()
+        self.player_controller.keys = self.keys
         self.player_controller.update_player_position()
 
 
