@@ -35,6 +35,9 @@ class KeyBinder:
 class PlayerController:
     def __init__(self, key_binders):
         self.players_binders = key_binders
+        self.players = []
+
+    def init(self):
         self.players = list(map(lambda b: b.player, self.players_binders))
 
     def handle_player_shooting(self, event):

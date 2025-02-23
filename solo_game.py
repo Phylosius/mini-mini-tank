@@ -18,6 +18,9 @@ class SoloGame(Game):
                                        pygame.K_LSHIFT)
         self.player_controller = PlayerController([self.player_binder])
 
+    def init(self):
+        self.player_controller.init()
+
     def handle_pygame_event(self, event):
 
         # for action to be performed once after pressing
