@@ -3,7 +3,7 @@ import pygame
 from game import Game
 from objects.tank import Tank
 from objects.auto_tank import AutoTank
-from services.player_controller import PlayerController
+from services.player_controller import PlayerController, KeyBinder
 
 
 class SoloGame(Game, PlayerController):
@@ -13,7 +13,11 @@ class SoloGame(Game, PlayerController):
         self.player = Tank(self, 0, 0)
         self.player_group.add(self.player)
 
-        PlayerController.__init__(self, self.player, self.keys)
+        self.player_binder = KeyBinder(self.player,
+                                       pygame.K_q, pygame.K_d,
+                                       pygame.K_z, pygame.K_s,
+                                       pygame.K_LSHIFT)
+        PlayerController.__init__(self, [self.player_binder], self.keys)
 
     def handle_pygame_event(self, event):
 
