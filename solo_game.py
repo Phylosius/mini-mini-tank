@@ -2,7 +2,6 @@ import pygame
 
 from game import Game
 from objects.tank import Tank
-from objects.auto_tank import AutoTank
 from services.player_controller import PlayerController, KeyBinder
 
 
