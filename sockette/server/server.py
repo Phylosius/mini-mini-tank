@@ -103,7 +103,8 @@ class TCPServer:
                 thread.start()
 
                 for th in self.threads:
-                    th.start()
+                    if not th.is_alive():
+                        th.start()
 
                 self.threads.append(thread)
         except KeyboardInterrupt:
